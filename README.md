@@ -2,7 +2,7 @@
 
 ## Before Starting
 
-Create DockerHub account and create a repository. 
+Create DockerHub account and create a repository within DockerHub. 
 
 Install Docker
 
