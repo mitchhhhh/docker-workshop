@@ -129,8 +129,6 @@ Now with specifying the value for `NAME`
 docker run --rm -e NAME=Mitch helloworld
 ```
 
-(Feel free to use your own name :smiley:)
-
 Output should be `Hello Mitch!`.
 
 ## Publishing Images
@@ -151,3 +149,44 @@ Use the login credentials you used to sign up when installing Docker.
 
 ### Publishing to DockerHub
 
+Once you've logged in, tag your image as follows
+
+```bash
+docker tag helloworld <username>/<repo name>
+```
+
+Where `<username>` is your DockerHub username and `<repo name>` is the name of the repository you created at the beginning.
+
+This will tag the image with the alias provided, using the command `docker images` you can see the image listed with the new tag.
+
+### Pulling from DockerHub
+
+Delete your image
+
+```bash
+docker rmi helloworld <username>/<repo name>
+```
+
+(might need to add `-f` to force it if you have any containers using it)
+
+Then try pulling your image
+
+```bash
+docker pull <username>/<repo name>
+```
+
+Run
+
+```bash
+docker run --rm -e NAME=George <username>/<repo name>
+```
+
+Can also try pulling my image
+
+```bash
+docker run --rm -e NAME=example mitchhhh/helloworld
+```
+
+Note how `docker run` can be used without a local image, where docker will attempt to pull the image if it doesn't exit locally.
+
+Once you've checkout the next branch - `Stage2-compose`
