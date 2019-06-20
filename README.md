@@ -2,12 +2,14 @@
 
 ## Before Starting
 
-Create DockerHub account and install Docker
+Create DockerHub account and create a repository. 
+
+Install Docker
 
 * [Windows](https://hub.docker.com/editions/community/docker-ce-desktop-windows)
 * [MacOS](https://hub.docker.com/editions/community/docker-ce-desktop-mac)
 
-Install a IDE for Javascript (e.g Visual Studio Code)
+Finally, install an IDE for Javascript (e.g Visual Studio Code)
 
 ## What is Docker
 
