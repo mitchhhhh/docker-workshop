@@ -159,6 +159,12 @@ Where `<username>` is your DockerHub username and `<repo name>` is the name of t
 
 This will tag the image with the alias provided, using the command `docker images` you can see the image listed with the new tag.
 
+Then to push the image
+
+```bash
+docker push <username>/<repo name>
+```
+
 ### Pulling from DockerHub
 
 Delete your image
