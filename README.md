@@ -9,6 +9,8 @@ Install Docker
 * [Windows](https://hub.docker.com/editions/community/docker-ce-desktop-windows)
 * [MacOS](https://hub.docker.com/editions/community/docker-ce-desktop-mac)
 
+During installation make sure to select Linux containers.
+
 Finally, install an IDE for Javascript (e.g Visual Studio Code)
 
 ## What is Docker
