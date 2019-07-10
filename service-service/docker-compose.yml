@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  sender:
+    build: sender
+    container_name: $SENDER_NAME
+    env_file: .env
+    ports:
+      - $SENDER_PORT:$SENDER_PORT
+
+  receiver:
+    build: receiver
+    container_name: $RECEIVER_NAME
+    env_file: .env
+    ports:
+      - $RECEIVER_PORT:$RECEIVER_PORT

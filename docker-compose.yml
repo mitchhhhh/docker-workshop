@@ -1,8 +1,0 @@
-version: '3'
-
-services:
-  helloworld:
-    build: .
-    container_name: helloworld
-    environment:
-      - NAME=Mitch
