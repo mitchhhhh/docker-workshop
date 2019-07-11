@@ -6,17 +6,21 @@ const setTimeoutPromise = require('util').promisify(setTimeout)
 const app = express()
 app.use(bodyParser.json())
 
-const port = 8080
-const appName = 'publisher'
+const port = process.env.EXPOSED_PORT
+const mqName = process.env.MQ_NAME
+const mqPort = process.env.MQ_PORT
+const queueName = process.env.QUEUE_NAME
+
 
 const initWebserver = (channel) => {
   app.post('/requests', (req, res) => {
-    console.log('Received POST request!')
-    channel.sendToQueue('messages', Buffer.from(JSON.stringify(req.body)))
+    const body = JSON.stringify(req.body)
+    console.log(`Received POST request! Body: ${body}`)
+    channel.sendToQueue(queueName, Buffer.from(body))
     res.sendStatus(200)
   })
   
-  app.listen(port, () => console.log(`${appName} listening on port ${port}!`))
+  app.listen(port, () => console.log(`Listening on port ${port}!`))
 }
 
 const connectToMq = (uri) => amqp.connect(uri)
@@ -25,13 +29,14 @@ const connectToMq = (uri) => amqp.connect(uri)
       return setTimeoutPromise(1000).then(() => connectToMq(uri))
     })
 
-connectToMq('amqp://message-mq:5672')
+connectToMq(`amqp://${mqName}:${mqPort}`)
   .then((conn) => conn.createChannel())
   .then((channel) => {
-    channel.assertQueue('messages', {
+    channel.assertQueue(queueName, {
       durable: false
     })
   
+    console.log(`Ready to send messages to ${queueName}`)
     initWebserver(channel)
   })
 
