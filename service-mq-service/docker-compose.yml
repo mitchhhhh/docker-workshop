@@ -9,14 +9,14 @@ services:
     ports:
       - 8080:8080
     networks: 
-      - service-mq-service
+      - publisher_network
 
   subscriber:
     build: subscriber
     depends_on:
       - message-mq
     networks: 
-      - service-mq-service
+      - subscriber_network
 
   message-mq:
     image: rabbitmq
@@ -24,7 +24,8 @@ services:
     ports:
       - 5672:5672
     networks: 
-      - service-mq-service
+      - publisher_network
+      - subscriber_network
 
   message-cache:
     image: redis
@@ -32,7 +33,7 @@ services:
     ports:
       - 6379:6379
     networks: 
-      - service-mq-service
+      - subscriber_network
 
 networks:
   publisher_network:
