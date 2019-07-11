@@ -7,8 +7,8 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "Launch Publisher",
-      "program": "${workspaceFolder}/service-mq-service/publisher/src/main/app.js",
+      "name": "Launch DB Service",
+      "program": "${workspaceFolder}/2. service-db/src/main/app.js",
     },
 
     {

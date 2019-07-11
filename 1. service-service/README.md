@@ -48,3 +48,5 @@ Note how localhost isn't being provided, `receiverAppName` will resolve to `Rece
 So the name of a container can be used as an alias the container's IP address in a similar way that `localhost` is used as an alias for the host machine.
 
 This also means that in circumstances where a container only has to communicate with other containers, it does not need to expose any ports on the host machine and would only be accessible via other containers which do expose ports to the host machine.
+
+Change folders to `2. service-db` to continue.
