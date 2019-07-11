@@ -2,6 +2,6 @@
 
 ## Communication
 
-This stage is made of three separate examples that show some common ways of communicating between containers
+This stage is made of three separate examples that show some common ways of communicating between containers as well as some other features.
 
-The examples increase in complexity, starting with service-service.
+Start with `1. service-service` then `2. ...`, etc.
