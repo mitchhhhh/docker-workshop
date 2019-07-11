@@ -214,3 +214,5 @@ docker-compose up -d
 ```
 
 optionally also with the `--build` flag if anything needs to be built locally, but ideally everything should be pulled from a remote artifactory.
+
+Chane branch to `Stage3-communication` to continue.
