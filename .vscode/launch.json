@@ -7,6 +7,13 @@
     {
       "type": "node",
       "request": "launch",
+      "name": "Launch Publisher",
+      "program": "${workspaceFolder}/service-mq-service/publisher/src/main/app.js",
+    },
+
+    {
+      "type": "node",
+      "request": "launch",
       "name": "Launch Receiver",
       "program": "${workspaceFolder}/service-service/receiver/src/main/app.js",
       "env": {

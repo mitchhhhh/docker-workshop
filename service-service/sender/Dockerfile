@@ -1,6 +1,4 @@
-FROM node:10
-
-ENV NAME "World"
+FROM node:10-alpine
 
 ADD ./package.json /app/package.json
 ADD ./package-lock.json /app/package-lock.json

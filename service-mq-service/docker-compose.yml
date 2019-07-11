@@ -1,0 +1,42 @@
+version: '3.5'
+
+services:
+  publisher:
+    build: publisher
+    container_name: publisher
+    depends_on:
+      - message-mq
+    ports:
+      - 8080:8080
+    networks: 
+      - service-mq-service
+
+  subscriber:
+    build: subscriber
+    depends_on:
+      - message-mq
+    networks: 
+      - service-mq-service
+
+  message-mq:
+    image: rabbitmq
+    container_name: message-mq
+    ports:
+      - 5672:5672
+    networks: 
+      - service-mq-service
+
+  message-cache:
+    image: redis
+    container_name: message-cache
+    ports:
+      - 6379:6379
+    networks: 
+      - service-mq-service
+
+networks:
+  publisher_network:
+    name: publisher_network
+  
+  subscriber_network:
+    name: subscriber_network
