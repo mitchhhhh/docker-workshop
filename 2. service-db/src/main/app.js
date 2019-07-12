@@ -1,13 +1,16 @@
 var mongoClient = require('mongodb').MongoClient
 const express = require('express')
 const bodyParser = require('body-parser')
+const setTimeoutPromise = require('util').promisify(setTimeout)
 
 const app = express()
 app.use(bodyParser.json())
 
 const port = process.env.SERVICE_PORT || 8080
+const mongoHost = process.env.MONGODB_HOST || 'request-db'
+const mongoPort = process.env.MONGODB_PORT || 27017
 
-const url = "mongodb://localhost:27017/"
+const url = `mongodb://${mongoHost}:${mongoPort}/`
 
 const initWebserver = (collection) => {
   app.post('/requests', (req, res) => {
