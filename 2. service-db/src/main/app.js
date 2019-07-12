@@ -16,7 +16,7 @@ const initWebserver = (collection) => {
   app.post('/requests', (req, res) => {
     collection.insertOne(req.body)
       .then(() => {
-        console.log(`Doc ${req.body} inserted.`)
+        console.log(`Doc ${JSON.stringify(req.body)} inserted.`)
         res.sendStatus(200)
       })
       .catch((err) => {
